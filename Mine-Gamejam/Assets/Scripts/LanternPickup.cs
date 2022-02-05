@@ -12,6 +12,7 @@ public class LanternPickup : MonoBehaviour
 		if (collision.tag == "Player")
 		{
 			hasPlayer = true;
+			GameManager.instance.useHint.SetActive(true);
 		}
 	}
 	private void OnTriggerExit2D(Collider2D collision)
@@ -19,6 +20,7 @@ public class LanternPickup : MonoBehaviour
 		if (collision.tag == "Player")
 		{
 			hasPlayer = false;
+			GameManager.instance.useHint.SetActive(false);
 		}
 	}
 

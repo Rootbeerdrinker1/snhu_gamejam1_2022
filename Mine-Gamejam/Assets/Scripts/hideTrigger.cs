@@ -11,6 +11,7 @@ public class hideTrigger : MonoBehaviour
 		if(collision.tag == "Player")
 		{
 			hasPlayer = true;
+			GameManager.instance.useHint.SetActive(true);
 		}
 	}
 	private void OnTriggerExit2D(Collider2D collision)
@@ -18,6 +19,7 @@ public class hideTrigger : MonoBehaviour
 		if (collision.tag == "Player")
 		{
 			hasPlayer = false;
+			GameManager.instance.useHint.SetActive(false);
 		}
 	}
 
@@ -25,7 +27,7 @@ public class hideTrigger : MonoBehaviour
 	{
 		if (hasPlayer && Input.GetKeyDown("e"))
 		{
-			Debug.Log("E");
+			//Debug.Log("E");
 			GameManager.instance.isHiding = !GameManager.instance.isHiding;
 			GameManager.instance.hideSpot = locker;
 		}

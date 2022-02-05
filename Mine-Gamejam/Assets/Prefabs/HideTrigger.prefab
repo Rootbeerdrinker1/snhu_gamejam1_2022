@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 7934453038584707496}
   - component: {fileID: 7934453038584707497}
   - component: {fileID: 7934453038584707502}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: HideTrigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,8 +27,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7934453038584707503}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -22.38, y: 1.03, z: 0}
-  m_LocalScale: {x: 2.7504258, y: 4.66953, z: 1}
+  m_LocalPosition: {x: -22.38, y: 1.0026, z: 0}
+  m_LocalScale: {x: 2.227845, y: 3.7823193, z: 0.81}
   m_Children:
   - {fileID: 7934453040501049970}
   m_Father: {fileID: 0}

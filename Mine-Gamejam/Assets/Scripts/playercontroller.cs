@@ -20,7 +20,7 @@ public class playercontroller : MonoBehaviour
 		{
 			if (!nowDead)
 			{
-                Instantiate(blood, this.transform);
+                blood.SetActive(true);
                 rb.velocity = new Vector2(0, rb.velocity.y);
             }
             nowDead = true;
@@ -76,6 +76,7 @@ public class playercontroller : MonoBehaviour
 
     bool IsGrounded()
     {
+
         bool b1 = Physics2D.Raycast(this.transform.position, -Vector2.up, 1f, -6);
         bool b2 = Physics2D.Raycast(new Vector2((this.transform.position.x + (transform.localScale.x / 2)), transform.position.y), -Vector3.up, 1f, -6);
         bool b3 = Physics2D.Raycast(new Vector2((this.transform.position.x - (transform.localScale.x / 2)), transform.position.y), -Vector3.up, 1f, -6);

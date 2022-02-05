@@ -12,6 +12,7 @@ public class EnemySpawn : MonoBehaviour
 		if(collision.tag == "Player")
 		{
 			spawnEnemy();
+			Destroy(this.gameObject);
 		}
 	}
 
