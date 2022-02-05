@@ -6,20 +6,43 @@ public class playercontroller : MonoBehaviour
 {
     public Rigidbody2D rb;
     public SpriteRenderer sr;
-    public Light light;
+    public Light playerLight;
     public float jumpForce;
     public float moveSpeed;
+    private bool nowDead = false;
+
+    public GameObject blood;
 
 
     void Update()
     {
-        rb.AddForce(Vector2.zero);
+		if (GameManager.instance.isDead)
+		{
+			if (!nowDead)
+			{
+                Instantiate(blood, this.transform);
+                rb.velocity = new Vector2(0, rb.velocity.y);
+            }
+            nowDead = true;
+
+            return;
+		}
+
+
         if (!GameManager.instance.isHiding)
         {
-            if(light.intensity < 2)
+			if (GameManager.instance.lanternEnabled)
 			{
-                light.intensity += 1f * Time.deltaTime;
+                if (playerLight.intensity < 2)
+                {
+                    playerLight.intensity += 1f * Time.deltaTime;
+                }
             }
+			else
+            {
+                playerLight.intensity = 0f;
+            }
+            
             rb.gravityScale = 4;
             sr.enabled = true;
             if (Input.GetKeyDown("space") && IsGrounded())
@@ -32,9 +55,16 @@ public class playercontroller : MonoBehaviour
         }
 		else
 		{
-            if (light.intensity > .5)
+            if (GameManager.instance.lanternEnabled)
             {
-                light.intensity -= 1f * Time.deltaTime;
+                if (playerLight.intensity > .5)
+                {
+                    playerLight.intensity -= 1f * Time.deltaTime;
+                }
+            }
+            else
+            {
+                playerLight.intensity = 0f;
             }
             rb.gravityScale = 0;
             this.transform.position = GameManager.instance.hideSpot.transform.position;
